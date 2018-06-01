@@ -1,0 +1,22 @@
+all:TestCNN
+
+TestCNN: bitmap.o cnn.o cnn_mian.o common.o perceptron.o
+gcc -Wall -o TestCNN bitmap.o cnn.o cnn_main.o common.o
+perceptron.o -lm
+
+bitmap.o: bitmap.c bitmap.h
+gcc -Wall -c bitmap.c
+cnn.o: cnn.c cnn.h
+gcc -Wall -c cnn.c
+
+cnn_main.o: cnn_main.c cnn_main.h
+gcc -Wall -c cnn_main.c
+
+common.o: common.c common.h
+gcc -Wall -c common.c
+
+perceptron.o: perceptron.c perceptron.h
+gcc -Wall -c perceptron.c
+
+clean:
+rm -rf *.o TestCNN
